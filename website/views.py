@@ -9,13 +9,13 @@ def home():
     return "<h1>Test</h1>"
 
 @views.route('/upload/')
-def index():
-    return render_template('index.html')
+def home():
+    return render_template('home.html')
 
 @views.route('/upload/', methods=['POST'])
 def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         uploaded_file.save(os.path.join('static/data', 'data'))
-    return redirect(url_for('views.index'))
+    return redirect(url_for('views.home'))
 
