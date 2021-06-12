@@ -12,6 +12,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024 * 1024 * 10  # accept files with size <10Gb
     app.config['UPLOAD_EXTENSIONS'] = ['.sff']                  # accept only .sff files
+    app.config['UPLOAD_PATH'] = 'uploads'
     db.init_app(app)
 
     from .views import views
