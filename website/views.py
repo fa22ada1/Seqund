@@ -25,4 +25,10 @@ def upload_file():
         outputfl = "website/static/outputs/output" + ID + ".fasta"
         uploaded_file.save(inputfl)
         sfftofasta(inputfl,outputfl)
-    return redirect(url_for('views.upload_file'))
+    return redirect(url_for('views.downloadFile'))
+
+@views.route('download')
+def downloadFile():
+    ID = str(current_user.get_id())
+    path = "static/outputs/output" + ID + ".fasta"
+    return send_file(path, as_attachment=True)
