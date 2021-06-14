@@ -24,8 +24,6 @@ def extract():
 @views.route('/extract/', methods=['POST'])
 def upload_file():
     option = request.form.get('match')
-
-    print(option)
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         ID = str(current_user.get_id())
