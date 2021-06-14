@@ -5,46 +5,76 @@
     * {
       box-sizing: border-box;
     }
-
     .column {
-      float: left;
+      text-align:center;
       width: 25%;
       padding: 5px;
     }
-
-    /* Clearfix (clear floats) */
     .row::after {
       content: "";
       clear: both;
       display: table;
     }
+    .card {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .contact{
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
-
-  <div class="row">
-    <div class="column"></div>
-    <div class="column">
-      <img
-        src="static/media/biopython_logo.png"
-        alt="BioPython"
-        style="width: 100%"
-      />
+    <div class="card">
+      <div class="card-header text-white bg-dark">
+        About us
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="column"></div>
+          <div class="column">
+            <img
+              src="static/media/biopython_logo.png"
+              alt="BioPython"
+              style="width: 55%"
+              />
+          </div>
+          <div class="column">
+            <img
+              src="static/media/ensias.png"
+              alt="Ensias"
+              style="width: 40%"
+              />
+          </div>
+          <div class="column"></div>
+        </div>
+        <p class="card-text">Seqund is a webapp for dna sequencing and helping
+          with data files conversions. As of today, it can help usersconvert
+          (.sff) files into (.fasta) or (.fastq) files. This webapp was made for
+          a school end of year project under the suer vision of M. Berquia,</p>
+      </div>
     </div>
-    <div class="column">
-      <img
-        src="static/media/ensias_logo.jpg"
-        alt="Ensias"
-        style="width: 80%"
-      />
+    <div class="card">
+      <div class="card-header text-white bg-dark">
+        Contact us
+      </div>
+      <div class=contact>
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Name</label>
+          <input type="email" class="form-control" id="exampleFormControlInput2">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput2">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <input type="submit" name="" class="form-control submit text-white bg-dark" value="SEND MESSAGE">
+      </form>
     </div>
-    <div class="column"></div>
-  </div>
-
-  <p>
-    Seqund is a webapp for dna sequencing and helping with data files
-    conversions. As of today, it can help usersconvert (.sff) files into
-    (.fasta) files.
-  </p>
+</div>
 </body>
 {% endblock %}

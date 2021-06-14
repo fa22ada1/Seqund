@@ -7,8 +7,9 @@
       }
       .column {
         float: left;
-        width: 50%;
+        width: 40%;
         padding: 5px;
+        padding-left: 50px
       }
       .row::after {
         content: "";
@@ -51,45 +52,73 @@
   -webkit-transition: .4s;
   transition: .4s;
 }
+.switch:after {
+  content: "fasta";
+}
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #0ba80b;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
 
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+.slider:after {
+  position:relative;
+  right:-70px;
+  bottom: -5px;
+  content: "Fasta"
+}
+
+input:checked + .slider:after {
+  position:relative;
+  right:-70px;
+  bottom: -5px;
+  content: "Fastq";
+  background: white;
+}
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.card {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
     </style>
 </head>
 <body>
-  <h1>File Upload</h1>
-  <p>Upload the (.sff) and wait for the wanted file format.
-    (toggle the button to convert to a (.fastq) file, untoggle for (.fasta).)
-  </p>
-
-  <form method="POST" action="" enctype="multipart/form-data">
-    <div class="row">
-      <div class="column">
-        <p><input type="file" name="file" class="custom-file-upload"
-            accept=".sff"></p>
-        <p><input type="submit" value="Submit" class="btn btn-primary"></p>
+    <div class="card">
+      <div class="card-header text-white bg-dark">
+        File Upload
       </div>
-      <div class="column">
-        <label class="switch">
-          <input type="checkbox" name= 'match' value='fastq'>
-          <span class="slider"></span>
-        </label>
+      <div class="card-body">
+        <p>Upload the (.sff) and wait for the wanted file format.
+        </p>
+        <form method="POST" action="" enctype="multipart/form-data">
+          <div class="row">
+            <div class="column">
+              <p><input type="file" name="file" class="form-control-file" accept=".sff"></p>
+              <p><input type="submit" value="Submit" class="btn btn-success"></p>
+            </div>
+            <div class="column">
+              
+              <label class="switch">
+                <input type="checkbox" name= 'match' value='fastq'>
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
+  </body>
 
-  </form>
-
-</body>
-
-{% endblock %}
+  {% endblock %}
