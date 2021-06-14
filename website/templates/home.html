@@ -1,2 +1,50 @@
-{% extends "base.html" %}
-{% block title %} Home {% endblock %}
+{% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
+%}
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .column {
+      float: left;
+      width: 25%;
+      padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="row">
+    <div class="column"></div>
+    <div class="column">
+      <img
+        src="static/media/biopython_logo.png"
+        alt="BioPython"
+        style="width: 100%"
+      />
+    </div>
+    <div class="column">
+      <img
+        src="static/media/ensias_logo.jpg"
+        alt="Ensias"
+        style="width: 80%"
+      />
+    </div>
+    <div class="column"></div>
+  </div>
+
+  <p>
+    Seqund is a webapp for dna sequencing and helping with data files
+    conversions. As of today, it can help usersconvert (.sff) files into
+    (.fasta) files.
+  </p>
+</body>
+{% endblock %}

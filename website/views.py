@@ -10,19 +10,19 @@ views = Blueprint('views', __name__)
 
 @views.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', user=current_user)
 
 @views.route('/extract/')
 def extract():
-    return render_template('extract.html')
+    return render_template('extract.html', user=current_user)
 
 @views.route('/extract/', methods=['POST'])
 def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         ID = str(current_user.get_id())
-        inputfl = "website/static/uploads/upload" + ID + ".sff"
-        outputfl = "website/static/outputs/output" + ID + ".fasta"
+        inputfl = "website/files/uploads/upload" + ID + ".sff"
+        outputfl = "website/files/outputs/output" + ID + ".fasta"
         uploaded_file.save(inputfl)
         sfftofasta(inputfl,outputfl)
     return redirect(url_for('views.downloadFile'))
@@ -30,5 +30,5 @@ def upload_file():
 @views.route('download')
 def downloadFile():
     ID = str(current_user.get_id())
-    path = "static/outputs/output" + ID + ".fasta"
+    path = "files/outputs/output" + ID + ".fasta"
     return send_file(path, as_attachment=True)
