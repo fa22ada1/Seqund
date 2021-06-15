@@ -2,25 +2,11 @@
 %}
 <head>
   <style>
-      * {
-        box-sizing: border-box;
-      }
-      .column {
-        float: left;
-        width: 40%;
-        padding: 5px;
-        padding-left: 50px
-      }
-      .row::after {
-        content: "";
-        clear: both;
-        display: table;
-      }
       .switch {
   position: relative;
-  display: inline-block;
   width: 60px;
   height: 34px;
+  float: right;
 }
 
 .switch input { 
@@ -57,7 +43,7 @@
 }
 
 input:checked + .slider {
-  background-color: #0ba80b;
+  background-color: #5cb85c;
 }
 
 
@@ -69,16 +55,16 @@ input:checked + .slider:before {
 
 .slider:after {
   position:relative;
-  right:-70px;
+  right:50px;
   bottom: -5px;
-  content: "Fasta"
+  content: ".fasta"
 }
 
 input:checked + .slider:after {
   position:relative;
-  right:-70px;
+  right:50px;
   bottom: -5px;
-  content: "Fastq";
+  content: ".fastq";
   background: white;
 }
 /* Rounded sliders */
@@ -93,32 +79,42 @@ input:checked + .slider:after {
       margin-top: 50px;
       margin-bottom: 50px;
     }
+    .card-body{
+      padding: 50px
+    }
+    .btn-success{
+      float:right;
+    }
     </style>
 </head>
 <body>
-    <div class="card">
-      <div class="card-header text-white bg-dark">
-        File Upload
-      </div>
-      <div class="card-body">
-        <p>Upload the (.sff) and wait for the wanted file format.
-        </p>
-        <form method="POST" action="" enctype="multipart/form-data">
-          <div class="row">
-            <div class="column">
-              <p><input type="file" name="file" class="form-control-file" accept=".sff"></p>
-              <p><input type="submit" value="Submit" class="btn btn-success"></p>
-            </div>
-            <div class="column">
-              
-              <label class="switch">
-                <input type="checkbox" name= 'match' value='fastq'>
-                <span class="slider round"></span>
-              </label>
-            </div>
+  <div class="card">
+    <div class="card-body">
+      <h1>File Upload</h1>
+      <p>Upload the (.sff) and wait for the wanted file format.
+      </p>
+      <form method="POST" action="" enctype="multipart/form-data"
+        classe="form-inline">
+        <div class="form-row">
+          <div class="col-7">
+            <p><input type="file" name="file" class="form-control-file"
+                accept=".sff" width="50%""></p>
           </div>
-        </form>
+          <div class="col">
+            <label class="switch">
+              <input type="checkbox" name= 'match' value='fastq'>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <p><input type="submit" value="Submit" class="btn btn-success"></p>
+          </div>
+        </div>
       </div>
-  </body>
+    </form>
+  </div>
+</body>
 
-  {% endblock %}
+{% endblock %}
