@@ -1,10 +1,3 @@
-
-<p align="center">
-  ![seqund_logo](https://user-images.githubusercontent.com/47124705/122622370-64351300-d090-11eb-9e5c-62be026965fb.png)
-</p>
-
-
-
 # Seqund !
 
 **DNA sequencing webapp**
